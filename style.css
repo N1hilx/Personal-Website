@@ -47,7 +47,7 @@ section{
 .sec1{
     display: none;
     transform: translateY(0) scale(1);
-    background-color: slateblue;
+    background-color: var(--color-primary);
 }
 
 .sec2{
@@ -90,7 +90,7 @@ section{
     justify-content: center;
     transform: translateY(-50%);
     .active-btn{
-        background-color: aqua !important;
+        background-color: rgba(255, 255, 255, 0.863) !important;
         transition: all .4s ease-in-out;
         i{
             color: white !important;
@@ -112,6 +112,29 @@ section{
             font-size: 1.2rem;
             color: gray;
             pointer-events: none;
+        }
+    }
+}
+
+
+.header-content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100%;
+    .left-header{
+        display: flex;
+        align-items: center;
+        position: relative;
+        .header-shape{
+            transition: all .4s ease-in-out;
+            width: 40%;
+            height: 100%;
+            background-color: #202434;
+            position: absolute;
+            left: 15%;
+            top: 0;
+            z-index: -1;
+            clip-path: circle(50% 50% at 50% 50%);
         }
     }
 }

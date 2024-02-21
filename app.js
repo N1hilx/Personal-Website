@@ -5,36 +5,40 @@ const allSections = document.querySelector('.main-content');
 
 
 function PageTransitions() {
-    // button click active class
+    // Button click active class
     for (let i = 0; i < section_button.length; i++) {
         section_button[i].addEventListener('click', function () {
-            let current_button = document.querySelectorAll('.active-btn');
-            if (current_button.length > 0) {
-                current_button[0].classList.remove('active-btn');
-            }
+            // Remove 'active-btn' class from all buttons
+            section_button.forEach(btn => {
+                btn.classList.remove('active-btn');
+            });
+
+            // Add 'active-btn' class to the clicked button
             this.classList.add('active-btn');
-        })
+        });
     }
 
-	//Section active class
-	allSections.addEventListener('click', (e) =>{
-		const id = e.target.dataset.id;
-		if(id){
-			//remove selected from the other buttons
-			section_buttons.forEach((btn) =>{
-				btn.classList.remove('active')
-			})
-			e.target.classList.add('active')
+    // Section active class
+    allSections.addEventListener('click', (e) => {
+        const id = e.target.dataset.id;
+        if (id) {
+            // Remove 'active' class from all buttons
+            section_buttons.forEach((btn) => {
+                btn.classList.remove('active');
+            });
 
-			//hide other sections
-			sections.forEach(section =>{
-				section.classList.remove('active')
-			})
-			
-			const element = document.getElementById(id);
-			element.classList.add('active');
-		}
-	})
+            // Add 'active' class to the clicked button
+            e.target.classList.add('active');
+
+            // Hide other sections
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const element = document.getElementById(id);
+            element.classList.add('active');
+        }
+    });
 }
 
-PageTransitions()
+PageTransitions();
